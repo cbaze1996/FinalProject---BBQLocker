@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Create New
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="createNew-header" align="center">New Recipe</h1>
+
+  <div class="createNewForms">
+    <form method="POST" enctype="multipart/form-data">
+      <label class="createNew-label"> Recipe Name:</label>
+        <textarea name="recipeName" id="recipeName" class="form-control" placeholder="Recipe Name"></textarea>
+        <br />
+
+      <label class="createNew-label">Type of Meat(s):</label>
+        <textarea name="meat" id="typeOfMeat" class="form-control" placeholder="Type of Meat(s) Used"></textarea>
+        <br />
+
+      <label class="createNew-label">Total Time:</label>
+        <textarea name="totalTime" id="totalTime" class="form-control" placeholder="Total Time"></textarea>
+        <br />
+
+      <label class="createNew-label">Preparation:</label>
+        <textarea name="preparation" id="preparation" class="form-control" placeholder="Preparation"></textarea>
+        <br />
+
+      <label class="createNew-label">Instructions:</label>
+        <textarea name="instructions" id="instructions" class="form-control" placeholder="Instructions"></textarea>
+        <br />
+
+
+      <label class="uploadImage-label">Upload Image: </label>
+        <br />
+      <input type="file" name="img" id="img" accept="image/*" capture>
+ 
+      <br />
+      <div align="center">
+        <button class="btn btn-primary" type="submit">Add Recipe</button>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

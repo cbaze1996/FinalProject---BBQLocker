@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Locker
+{% endblock %}
+
+{% block content %}
+    <h1 class="header-favorites">My Favorite Recipes</h1>
+      <ul class="fav-list-grid" id="favorite">
+        {% for recipe in user.favorites %}
+        <li>
+          <a id="recipeName" onClick="gotoRecipe({{ recipe.recipe_id }})">{{ recipe.recipeName }}</a>
+          <a id="recipeMeat" onClick="gotoRecipe({{ recipe.recipe_id }})"><b>Type Of Meat(s): </b>{{ recipe.meat }}</a>
+          <a id="totalTime" onClick="gotoRecipe({{ recipe.recipe_id }})"><b>Total Time: </b>{{ recipe.totalTime }}</a>
+          
+          <img id="favoriteImg" onClick="gotoRecipe({{ recipe.recipe_id }})" width="100" height="100"  src="/static/userImages/{{ recipe.imgName }}" alt="recipe.imgName">
+          
+          <button id="deleteFavButton" type="button" class="close" onClick="deleteFavorite({{ recipe.id }})">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </li>
+        {% endfor %}
+      </ul>
+{% endblock %}

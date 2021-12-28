@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Library
+{% endblock %}
+
+{% block content %}
+<h1 class="header-library">Recipes</h1>
+<body>
+  <ul class="list-grid" id="recipe">
+    {% for recipe in recipes %}
+    <li class="data-box" >
+      
+      <a id="recipeName" onClick="gotoRecipe({{ recipe.id }})">{{ recipe.recipeName }}</a>
+      <a id="recipeMeat" onClick="gotoRecipe({{ recipe.id }})"><b>Type Of Meat(s): </b><br />{{ recipe.meat }}</a>
+      <a id="totalTime" onClick="gotoRecipe({{ recipe.id }})"><b>Total Time: </b>{{ recipe.totalTime }}</a>
+      <img id="libraryImg" onClick="gotoRecipe({{ recipe.id }})" width="100" height="100"  src="/static/userImages/{{ recipe.imgName }}" alt="No Image Uploaded">
+    
+
+      <button id="deleteButton" style="padding: 1px; background-color:grey; border-bottom-right-radius: 5px; border-top-right-radius: 5px;" type="button" class="close" onClick="deleteRecipe({{ recipe.id }})">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <button id="addFavButton" style="padding: 1px; background-color:grey; border-bottom-left-radius: 5px; border-top-left-radius: 5px;" type="button" class="close" onClick="addFavorite({{ recipe.id }})">
+        <span aria-hidden="true">&plus;</span>
+      </button>
+      
+    </li>
+    {% endfor %}
+  </ul>
+
+</body>
+
+{% endblock %}
